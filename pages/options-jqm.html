@@ -1,0 +1,115 @@
+<!DOCTYPE html> 
+    <form id="options" autocomplete="off">
+            <center>
+            <span class="metro outline red">ATL</span><span class="metro outline yellow">CRIME</span>
+            <br>
+            <span class="russo">Select Options</span>
+            <div class="ui-field-contain">
+               <select class="ui-crime-type" data-native-menu="false" id="ac-crime-type">
+                    <option value="Auto">Auto</option>
+                    <option value="Assault">Assault</option>
+                    <option value="Burglary">Burglary</option>
+                    <option value="Homicide">Homicide</option>
+                    <option value="Larceny">Larceny</option>
+                    <option value="Robbery">Robbery</option>
+                    <option value="Rape">Rape</option>
+                </select>
+               <select class="ui-days" data-native-menu="false" id="ac-days">
+                    <option value="7">Days (7)</option>
+                    <option value="14">2 Weeks</option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </select>
+                <select class="ui-pr" data-native-menu="false" id="ac-pr">
+                        <option value="100">Pins (100)</option>
+                        <option value="200">Pins (200)</option>
+                        <option value="300">Pins (300)</option>
+                        <option value="400">Pins (400)</option>
+                        <option value="500">Pins (500)</option>
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+                </select>
+                <select class="ui-tod" data-native-menu="false" id="ac-tod">
+                    <option value="ALL">ALL</option>
+                    <option value="DAY">DAY</option>
+                    <option value="NIGHT">NIGHT</option>
+                </select>
+            <style>
+                .bg-green{
+                    background-color: chartreuse ! important;
+                }
+            </style>
+            <!-- ui-disabled -->                
+            <a class="ui-btn ui-btn-corner-all bg-green ui-btn-get-data"
+               onclick="app.getResults()">
+                <i class="fa fa-cloud-download fa-3x"></i>&nbsp;&nbsp;               
+                <span class="russo red outline">Get</span>&nbsp;<span class="russo yellow outline">Data</span>
+            </a>
+                
+            </div>
+                
+
+            
+            <h4>
+                <label class="pull-left" style="padding-top: 6px">&copy;&nbsp;2013 &bull; ATLCRIME</label>
+                <a href="#page-about" onclick="app.setDeviceInfo()" class="pull-right"><i class="fa fa-info-circle fa-2x"></i></a>
+                
+            </h4>
+
+        </form>
+            
+    <script>
+        var _event = 'pagebeforehide';
+
+        $('select').on('change',function(e){
+            console.log('options-jqm.change');
+            dataStorage.onChange(e.currentTarget.id,$(this).val());
+        });
+        
+        $('.jqm-home').on(_event,function(event, ui){
+//            alert(_event);
+            var _selects = ['#ac-crime-type', '#ac-days', '#ac-pr', '#ac-tod' ];
+            jQuery.each(_selects, function(index,value){
+                $(value+'-dialog')
+                        .find('div.ui-dialog-contain')
+                        .find('div.ui-header')
+                        .find('div.ui-title')
+                        .html('<span class="metro metro-mini red outline">ATL</span><span class="metro metro-mini yellow outline">CRIME</span>');
+            });
+            var _ui = $('#ac-days-dialog')
+                        .find('div.ui-dialog-contain')
+                        .find('div.ui-header')
+                        .find('div.ui-title')
+                        .html('<span class="metro metro-mini red outline">ATL</span><span class="metro metro-mini yellow outline">CRIME</span>');
+//            alert(_ui);
+        });
+    </script>
+            
+ 
